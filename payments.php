@@ -73,7 +73,7 @@ if (isset($_POST['customerNumber'])){
     // output data of each row
 	echo "<table border='1'>";
 	echo "<tr>";
-	echo "<th>Customer Phone Number</th><th>Sales Rep</th><th>Credit Limit</th><th>Total Amount</th>";
+	echo "<th>Customer Phone Number</th><th>Sales Rep</th><th>Credit Limit</th><th>Sum of Payments</th>";
 	echo "</tr>";
     while($row = $result->fetch_assoc()) {
 		$rw = "<tr>";
@@ -89,9 +89,10 @@ if (isset($_POST['customerNumber'])){
     echo "No results found.";
 }
 	
-	$sql = "SELECT payments.amount
+	$sql = "SELECT payments.paymentDate, payments.checkNumber, payments.amount
 			FROM payments 
-			WHERE payments.customerNumber = $customerNumber";
+			WHERE payments.customerNumber = $customerNumber
+			ORDER BY payments.paymentDate DESC";
 	
 	$resultPayments = $conn->query($sql);
 		
@@ -99,10 +100,13 @@ if (isset($_POST['customerNumber'])){
     // output data of each row
 	echo "<table border='1'>";
 	echo "<tr>";
-	echo "<th>Payments</th>";
+	echo "<th>Payment Date</th><th>Check Number</th><th>Payments</th>";
 	echo "</tr>";
     while($rowPayments = $resultPayments->fetch_assoc()) {
-        echo "<tr><td>" . round($rowPayments["amount"],2) . "</td></tr>";
+		echo "<tr>";
+		echo "<td>" . $rowPayments["paymentDate"] . "</td>";
+		echo "<td>" . $rowPayments["checkNumber"] . "</td>";
+        echo "<td>" . round($rowPayments["amount"],2) . "</td></tr>";
     }
 	echo "</table>";
 } else {
