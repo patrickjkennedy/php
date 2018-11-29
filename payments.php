@@ -6,7 +6,7 @@ include "templates/header.php";
 echo "<h2>Payments</h2>";
 
 echo "<p>Fetch number of rows:</p>
-		<form action=\"post\">
+		<form method=\"post\">
   		<select name=\"rows\">
     	<option selected=\"selected\" value=\"20\">20</option>
     	<option value=\"40\">40</option>
@@ -21,11 +21,20 @@ $conn = new mysqli($host, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
-} 
+}
+
+if (isset($_POST['rows'])){
+	$rows = $_POST['rows'];
+	// Update dropdown value with Javascript
+	
+} else{
+	//Set rows to be 20 on page load
+	$rows = 20;
+}
 
 $sql = "SELECT payments.checkNumber, payments.paymentDate, payments.amount, payments.customerNumber 
 		FROM payments 
-		LIMIT 20";
+		LIMIT $rows";
 
 $result = $conn->query($sql);
 
