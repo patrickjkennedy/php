@@ -5,16 +5,29 @@ include "templates/header.php";
 
 echo "<h2>Payments</h2>";
 
-echo "<p>Fetch number of rows:</p>
-		<form method=\"post\">
-  		<select name=\"rows\">
-    	<option selected=\"selected\" value=\"20\">20</option>
-    	<option value=\"40\">40</option>
-		<option value=\"60\">60</option>
-  </select>
-  <input type=\"submit\">
-  <br/><br/>
-</form>";
+$dropdown = "";
+
+$dropdown .= "<p>Fetch number of rows:</p><form method=\"post\"><select name=\"rows\"><option value=\"20\" ";
+
+if(isset($_POST['rows']) && $_POST['rows']==20) {
+	$dropdown .= "selected";
+}
+
+$dropdown .= ">20</option><option value=\"40\"";
+
+if(isset($_POST['rows']) && $_POST['rows']==40) {
+	$dropdown .= "selected";
+}
+
+$dropdown .= ">40</option><option value=\"60\"";
+
+if(isset($_POST['rows']) && $_POST['rows']==60) {
+	$dropdown .= "selected";
+}
+
+$dropdown .= ">60</option></select><input type=\"submit\"><br/><br/></form>";
+
+echo $dropdown;
 
 // Create connection
 $conn = new mysqli($host, $username, $password, $dbname);
@@ -25,7 +38,6 @@ if ($conn->connect_error) {
 
 if (isset($_POST['rows'])){
 	$rows = $_POST['rows'];
-	// Update dropdown value with Javascript
 	
 } else{
 	//Set rows to be 20 on page load

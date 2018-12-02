@@ -7,4 +7,6 @@
 $host       = "localhost";
 $username   = "root";
 $password   = "";
-$dbname     = "classicmodels"; 
+$dbname     = "classicmodels";
+
+?>
