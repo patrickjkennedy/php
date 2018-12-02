@@ -18,7 +18,7 @@ $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     // output data of each row
-	echo "<table border='1'>";
+	echo "<table>";
 	echo "<tr>";
 	echo "<th>City</th><th>Address</th><th>Phone Number</th><th>Employees</th>";
 	echo "</tr>";
@@ -70,7 +70,7 @@ if (isset($_POST['officeCode'])){
 
 if ($result->num_rows > 0){
 	// output data of each row
-	echo "<table border='1'>";
+	echo "<table>";
 	echo "<tr>";
 	echo "<th>Full Name</th><th>Job Title</th><th>Employee Number</th><th>Email</th>";
 	echo "</tr>";
@@ -82,6 +82,7 @@ if ($result->num_rows > 0){
 		$rw .= $row["email"] . "</td></tr>";
 		echo $rw;
 	}
+	echo "</table>";
 } else {
 	echo "No results found.";
 }

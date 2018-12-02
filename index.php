@@ -1,4 +1,6 @@
-<?php require "dbconfig.php";
+<?php 
+
+require "dbconfig.php";
 include "templates/header.php";
 
 echo "<h2>Available Products</h2>";
@@ -15,7 +17,7 @@ $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     // output data of each row
-	echo "<table border='1'>";
+	echo "<table>";
 	echo "<tr>";
 	echo "<th>Product Line</th><th>Description</th>";
 	echo "</tr>";
@@ -24,6 +26,8 @@ if ($result->num_rows > 0) {
         echo "<td>" . $row["productLine"] . "</td><td>" . $row["textDescription"] . "</td>";
 		echo "</tr>";
     }
+	echo "</table>";
+	
 } else {
     echo "No results found.";
 }

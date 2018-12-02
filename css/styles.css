@@ -1,4 +1,99 @@
+html {
+  	height: 100%;
+  	box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  	box-sizing: inherit;
+}
+
+body {
+	position: relative;
+	margin: 25px;
+  	padding-bottom: 6rem;
+  	min-height: 100%;
+  	font-family: "Open Sans", Arial, sans-serif;
+	background-color: #FEFDFF;
+  	color: #08090A;
+}
+
+.footer {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	padding: 1rem;
+	background-color: #522B47;
+	color: #FEFDFF;
+	text-align: center;
+}
+
+/* Footer styling adapted from:
+https://codepen.io/cbracco/pen/zekgx 
+*/
+
+table, td, th {    
+    border: 1px solid #89A7A7;
+    text-align: center;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 15px;
+}
+
+th {
+	background-color: #522B47;
+	color: #FEFDFF;
+}
+
+tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
+
+
+/* Table styling adapted from:
+https://www.w3schools.com/css/tryit.asp?filename=trycss_table_padding
+*/
+
 #info_button {
 	width: 100%;
 	height: 25px;
 }
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+	background-color: #522B47;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: #FEFDFF;
+	font-weight: 900;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #2b5236;
+}
+
+/* Adapted from tutorial on w3 schools:
+https://www.w3schools.com/css/tryit.asp?filename=trycss_navbar_horizontal_black
+*/
+
+
