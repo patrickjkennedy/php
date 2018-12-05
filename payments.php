@@ -7,7 +7,7 @@ echo "<h2>Payments</h2>";
 
 $dropdown = "";
 
-$dropdown .= "<p>Fetch number of rows:</p><form method=\"post\"><select name=\"rows\"><option value=\"20\" ";
+$dropdown .= "<h3>Fetch number of rows:</h3><form method=\"post\"><select name=\"rows\"><option value=\"20\" ";
 
 if(isset($_POST['rows']) && $_POST['rows']==20) {
 	$dropdown .= "selected";
@@ -25,7 +25,7 @@ if(isset($_POST['rows']) && $_POST['rows']==60) {
 	$dropdown .= "selected";
 }
 
-$dropdown .= ">60</option></select><input type=\"submit\"><br/><br/></form>";
+$dropdown .= ">60</option></select><br/><br/><input type=\"submit\"><br/><br/></form>";
 
 echo $dropdown;
 
