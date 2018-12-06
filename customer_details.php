@@ -3,6 +3,9 @@
 require "dbconfig.php";
 include "templates/header.php";
 
+// MySQLi code adapted from tutorial here:
+// https://www.w3schools.com/php/showphpfile.asp?filename=demo_db_select_oo
+
 if (isset($_POST['customerNumber'])){
 	$customerNumber = $_POST['customerNumber'];
 	echo "<h2>Customer #$customerNumber Details: </h2>";

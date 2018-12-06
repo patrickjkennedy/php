@@ -5,6 +5,9 @@ include "templates/header.php";
 
 echo "<h2>Offices</h2>";
 
+// MySQLi code adapted from tutorial here:
+// https://www.w3schools.com/php/showphpfile.asp?filename=demo_db_select_oo
+
 // Create connection
 $conn = new mysqli($host, $username, $password, $dbname);
 // Check connection

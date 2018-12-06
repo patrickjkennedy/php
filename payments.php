@@ -3,7 +3,10 @@
 require "dbconfig.php";
 include "templates/header.php";
 
-echo "<h2>Payments</h2>";
+echo "<h2>Most Recent Payments</h2>";
+
+// MySQLi code adapted from tutorial here:
+// https://www.w3schools.com/php/showphpfile.asp?filename=demo_db_select_oo
 
 $dropdown = "";
 
@@ -45,7 +48,8 @@ if (isset($_POST['rows'])){
 }
 
 $sql = "SELECT payments.checkNumber, payments.paymentDate, payments.amount, payments.customerNumber 
-		FROM payments 
+		FROM payments
+		ORDER BY payments.paymentDate DESC
 		LIMIT $rows";
 
 $result = $conn->query($sql);
